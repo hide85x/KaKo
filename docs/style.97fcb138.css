@@ -72,6 +72,9 @@ img:hover {
     top: -15px;
     left: 0;
     transform: translatex(-250px); }
+    @media (max-width: 900px) {
+      .nav__list {
+        top: -14px; } }
   .nav__item {
     padding: 5px 20px;
     color: #ffffff;
@@ -82,6 +85,11 @@ img:hover {
         padding: 5px 0;
         margin: 0;
         font-size: 15px; } }
+  .nav :nth-of-type(5) {
+    display: none; }
+    @media (max-width: 900px) {
+      .nav :nth-of-type(5) {
+        display: inline-block; } }
   .nav__item:hover {
     cursor: pointer;
     border-left: 2px solid white;
@@ -93,6 +101,10 @@ img:hover {
   color: red; }
   #close:hover {
     font-weight: bold; }
+
+@media (max-width: 900px) {
+  div .hr {
+    display: none; } }
 
 .lastWord {
   width: 50%;
@@ -110,10 +122,14 @@ img:hover {
 .footer img {
   margin-top: 10px;
   align-self: stretch; }
+  @media (max-width: 900px) {
+    .footer img {
+      align-self: center; } }
 
 .footer {
+  width: 100%;
   left: -200px;
-  border-top: 3px solid black;
+  border-top: 2px solid black;
   display: flex;
   justify-content: center;
   color: #171717;
