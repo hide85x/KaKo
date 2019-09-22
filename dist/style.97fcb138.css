@@ -72,12 +72,17 @@ img:hover {
     top: -15px;
     left: 0;
     transform: translatex(-250px); }
+    @media (max-width: 900px) {
+      .nav__list {
+        top: -14px; } }
   .nav__item {
     padding: 5px 20px;
-    color: #ffffff; }
+    color: #ffffff;
+    width: 100%; }
     @media (max-width: 900px) {
       .nav__item {
-        padding: 0;
+        width: 100%;
+        padding: 5px 0;
         margin: 0;
         font-size: 15px; } }
   .nav__item:hover {
@@ -91,6 +96,10 @@ img:hover {
   color: red; }
   #close:hover {
     font-weight: bold; }
+
+@media (max-width: 900px) {
+  div .hr {
+    display: none; } }
 
 .lastWord {
   width: 50%;
@@ -106,15 +115,18 @@ img:hover {
   top: -10px; }
 
 .footer img {
-  align-self: center; }
+  margin-top: 10px;
+  align-self: stretch; }
+  @media (max-width: 900px) {
+    .footer img {
+      align-self: center; } }
 
 .footer {
+  width: 100%;
   left: -200px;
-  border-top: 3px solid black;
+  border-top: 2px solid black;
   display: flex;
   justify-content: center;
-  gap: 25px;
-  width: 100%;
   color: #171717;
   background-color: white;
   flex-wrap: nowrap;
@@ -298,9 +310,8 @@ section {
   @media (max-width: 1200px) {
     .box {
       margin: 0;
-      padding: 0;
+      padding: 0 20px !important;
       max-height: fit-content;
-      min-width: 200px;
       font-size: 10px; } }
   .box:hover {
     background-color: rgba(0, 0, 0, 0.705);
@@ -323,7 +334,7 @@ section {
     @media (max-width: 1200px) {
       .box:nth-of-type(2) {
         height: auto;
-        padding: 50px 0; } }
+        padding: 30px 0; } }
   .box:last-of-type {
     left: -5px;
     height: 700px; }

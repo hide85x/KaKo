@@ -93,6 +93,7 @@ img:hover {
         // zawsze animujemy TRANSFORM!
         transform: translatex(-250px);
         @media (max-width:900px) {
+            top: -14px
         }
 
     }
@@ -121,7 +122,11 @@ img:hover {
         font-weight: bold
     }
 }
-
+div .hr {
+    @media (max-width:900px) {
+        display: none
+    }
+}
 .lastWord {
     width: 50%;
     background-color: $light;
@@ -138,10 +143,14 @@ img:hover {
 .footer img {
     margin-top: 10px;
     align-self:stretch;
+    @media (max-width: 900px) {
+        align-self: center
+    }
 }
 .footer {
+    width: 100%;
     left: -200px;
-    border-top: 3px solid black;
+    border-top: 2px solid black;
     display: flex;
     justify-content: center;
     color: $dark;
@@ -151,6 +160,7 @@ img:hover {
     @media (max-width:700px) {
         img {
             order: 3;
+            
            
         }
         padding:0;
