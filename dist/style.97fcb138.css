@@ -59,6 +59,11 @@ img:hover {
   margin-bottom: 200px; }
   .nav__list {
     padding-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 99.7%;
     width: 250px;
     background-color: rgba(0, 0, 0, 0.74);
     color: #ffffff;
