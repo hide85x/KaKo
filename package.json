@@ -1,0 +1,21 @@
+{
+  "name": "kako",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html --public-url ./",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hide85x/KaKo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hide85x/KaKo/issues"
+  },
+  "homepage": "https://github.com/hide85x/KaKo#readme"
+}
