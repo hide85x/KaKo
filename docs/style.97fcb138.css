@@ -58,13 +58,18 @@ img:hover {
   transition: transform 0.3s 0.1s ease-in-out;
   margin-bottom: 200px; }
   .nav__list {
-    padding-bottom: 2px;
+    padding-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 99.7%;
     width: 250px;
     background-color: rgba(0, 0, 0, 0.74);
     color: #ffffff;
     position: absolute;
     list-style-type: none;
-    top: 5px;
+    top: -15px;
     left: 0;
     transform: translatex(-250px); }
   .nav__item {

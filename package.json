@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "parcel index.html",
-    "build": "parcel build index.html --public-url ./",
+    "start": "parcel index.html --out-dir docs ",
+    "build": "parcel build index.html --out-dir --public-url ./",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/hide85x/KaKo/issues"
   },
-  "homepage": "https://github.com/hide85x/KaKo#readme"
+  "homepage": "https://github.com/hide85x/KaKo#readme",
+  "devDependencies": {
+    "cssnano": "^4.1.10"
+  }
 }
