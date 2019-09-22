@@ -74,10 +74,12 @@ img:hover {
     transform: translatex(-250px); }
   .nav__item {
     padding: 5px 20px;
-    color: #ffffff; }
+    color: #ffffff;
+    width: 100%; }
     @media (max-width: 900px) {
       .nav__item {
-        padding: 0;
+        width: 100%;
+        padding: 5px 0;
         margin: 0;
         font-size: 15px; } }
   .nav__item:hover {
@@ -106,15 +108,14 @@ img:hover {
   top: -10px; }
 
 .footer img {
-  align-self: center; }
+  margin-top: 10px;
+  align-self: stretch; }
 
 .footer {
   left: -200px;
   border-top: 3px solid black;
   display: flex;
   justify-content: center;
-  gap: 25px;
-  width: 100%;
   color: #171717;
   background-color: white;
   flex-wrap: nowrap;
@@ -346,4 +347,4 @@ section {
     font-weight: bold; }
 
 
-/*# sourceMappingURL=style.97fcb138.css.map */
+/*# sourceMappingURL=/style.97fcb138.css.map */

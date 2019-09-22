@@ -99,8 +99,10 @@ img:hover {
     &__item {
         padding: 5px 20px;
         color:$light;
+        width: 100%;
         @media (max-width:900px) {
-            padding: 0;
+            width: 100%;
+            padding:5px 0;
             margin: 0;
             font-size: 15px;
         }
@@ -134,15 +136,14 @@ img:hover {
     top: -10px;
 }
 .footer img {
-    align-self: center;
+    margin-top: 10px;
+    align-self:stretch;
 }
 .footer {
     left: -200px;
     border-top: 3px solid black;
     display: flex;
     justify-content: center;
-    gap: 25px;
-    width: 100%;
     color: $dark;
     background-color:white;
     flex-wrap: nowrap;
