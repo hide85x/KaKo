@@ -76,14 +76,14 @@ img:hover {
     &__list {
         // border-left:1px solid white;
         // border-bottom: 1px solid white;
-        padding-bottom: 2px;
+        padding-bottom: 0;
         width: 250px;
         background-color: rgba(0, 0, 0, 0.74);
         color:$light;
         position: absolute;
         list-style-type: none;
 
-        top: 5px;
+        top: -15px;
         left: 0; // jesli zanimoalibysmy LEFT to syrasznie by nam zwolnila ta animka
         // zawsze animujemy TRANSFORM!
         transform: translatex(-250px);
