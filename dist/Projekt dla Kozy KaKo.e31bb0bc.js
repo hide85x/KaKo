@@ -123,17 +123,43 @@ var btn = document.querySelector('.hamburger');
 var navLogo = document.querySelector('#navLogo');
 var footLogo = document.querySelector('#footLogo');
 var x = document.querySelector("#close");
+var navLinks = document.querySelectorAll(".nav__list li a ");
+var email = document.querySelector(".inputEmail");
+var msg = document.querySelector("#msg");
+var sendBtn = document.querySelector(".sendMsg");
 
 var showNav = function showNav() {
-  console.log(btn);
   nav.classList.toggle('active');
   btn.classList.toggle('hamburger--active');
-};
+}; //for IE
 
-btn.addEventListener('click', showNav);
-navLogo.addEventListener('click', showNav);
-footLogo.addEventListener('click', smoothscroll);
-x.addEventListener('click', showNav); // nav.addEventListener('click', showNav)
+
+for (var i = 0; i < navLinks.length; i++) {
+  navLinks[i].addEventListener('click', navLinkClick);
+}
+
+navLinks.forEach(function (e) {
+  return e.addEventListener('click', navLinkClick);
+});
+
+function navLinkClick() {
+  smoothScroll(event);
+
+  if (nav.classList.contains("active")) {
+    nav.classList.toggle("active");
+    btn.classList.toggle("hamburger--active");
+  }
+} // // 1 approach
+// function smoothScroll(event){
+//     const targetId= event.currentTarget.getAttribute('href');
+//     console.log(targetId);
+//     window.scrollTo({
+//         top: document.querySelector(targetId).offsetTop,
+//         behavior: "smooth"
+//     })
+// }
+//dla loga w stopce pageUP
+
 
 function smoothscroll() {
   var currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
@@ -143,6 +169,68 @@ function smoothscroll() {
     window.scrollTo(0, currentScroll - currentScroll / 5);
   }
 }
+
+function sendEmail() {
+  console.log(msg.value); // sendBtn.setAttribute('href', "mailto:hide85x@gmail.com" + "&subject=" + escape("KaKo Question") + "&body" + escape(msg.value));
+
+  var link = "mailto:hide85x@gmail.com" + "?cc=" + email.value + "&subject=KaKo! Question from Your site!" + "&body=" + msg.value;
+  window.location.href = link;
+  msg.value = "";
+  email.value = "";
+}
+
+sendBtn.addEventListener('click', sendEmail);
+btn.addEventListener('click', showNav);
+navLogo.addEventListener('click', showNav);
+footLogo.addEventListener('click', smoothscroll);
+x.addEventListener('click', function () {
+  nav.classList.remove("active");
+}); // nav.addEventListener('click', showNav)
+// super smooth scrool on IE!!!!
+
+function smoothScroll(event) {
+  event.preventDefault();
+  var targetId = event.currentTarget.getAttribute("href") === "#" ? "header" : event.currentTarget.getAttribute("href");
+  var targetPosition = document.querySelector(targetId).offsetTop;
+  var startPosition = window.pageYOffset;
+  var distance = targetPosition - startPosition;
+  var duration = 1000;
+  var start = null;
+  window.requestAnimationFrame(step);
+
+  function step(timestamp) {
+    if (!start) start = timestamp;
+    var progress = timestamp - start; // window.scrollTo(0, distance*(progress/duration) + startPosition);
+
+    window.scrollTo(0, easeInOutCubic(progress, startPosition, distance, duration));
+    if (progress < duration) window.requestAnimationFrame(step);
+  }
+} // Easing Functions
+
+
+function linear(t, b, c, d) {
+  return c * t / d + b;
+}
+
+;
+
+function easeInOutQuad(t, b, c, d) {
+  t /= d / 2;
+  if (t < 1) return c / 2 * t * t + b;
+  t--;
+  return -c / 2 * (t * (t - 2) - 1) + b;
+}
+
+;
+
+function easeInOutCubic(t, b, c, d) {
+  t /= d / 2;
+  if (t < 1) return c / 2 * t * t * t + b;
+  t -= 2;
+  return c / 2 * (t * t * t + 2) + b;
+}
+
+;
 },{}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -171,7 +259,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64362" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50802" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

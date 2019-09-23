@@ -8,7 +8,12 @@ $font-stack: 'Fira Code', sans-serif;
 html {
     box-sizing: border-box;
   }
-  
+a {
+    color: inherit;
+    width: 100%;
+    text-decoration: none
+
+}
 *, *::before, *::after {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -104,12 +109,13 @@ img:hover {
 
     }
     &__item {
-        padding: 5px 20px;
+        font-size: 19px;
+        padding: 1px 2px;
         color:$light;
         width: 100%;
         @media (max-width:900px) {
             width: 100%;
-            padding:5px 0;
+            padding:2px 0;
             margin: 0;
             font-size: 15px;
            
@@ -121,10 +127,10 @@ img:hover {
                  display: inline-block
              }
             }
-    &__item:hover {
+    &__item a:hover {
         cursor: pointer;
         border-left: 2px solid white;
-        padding-left:2px ;
+        padding-left:20px ;
         font-weight: bold;
         transition: padding 0.3s ease-in-out
     }   
@@ -249,12 +255,6 @@ div .hr {
     }
 }
 
-
-
-
-
-
-
 .active {
     transform: translateX(250px);
     .navbar {
@@ -262,7 +262,6 @@ div .hr {
     }
     
 }
-
 
 
 //hamburger

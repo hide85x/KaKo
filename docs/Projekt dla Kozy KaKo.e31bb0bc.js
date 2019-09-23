@@ -126,7 +126,7 @@ var x = document.querySelector("#close");
 var email = document.querySelector(".inputEmail");
 var msg = document.querySelector("#msg");
 var sendBtn = document.querySelector(".sendMsg");
-sendBtn.addEventListener("click", sendEmail);
+sendBtn.addEventListener('click', sendEmail);
 btn.addEventListener('click', showNav);
 navLogo.addEventListener('click', showNav);
 footLogo.addEventListener('click', smoothscroll);
@@ -134,6 +134,7 @@ x.addEventListener('click', showNav); // nav.addEventListener('click', showNav)
 
 var showNav = function showNav() {
   console.log(btn);
+  console.log(navLogo);
   nav.classList.toggle('active');
   btn.classList.toggle('hamburger--active');
 };
@@ -183,7 +184,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49616" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50729" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -2,12 +2,24 @@
 html {
   box-sizing: border-box; }
 
+a {
+  color: inherit;
+  width: 100%;
+  text-decoration: none; }
+
 *, *::before, *::after {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
+
+#msg {
+  text-align: center; }
+
+.inputEmail {
+  margin: 3px 0;
+  text-align: center; }
 
 .hello {
   font-size: 30px;
@@ -76,19 +88,25 @@ img:hover {
       .nav__list {
         top: -14px; } }
   .nav__item {
-    padding: 5px 20px;
+    font-size: 19px;
+    padding: 1px 2px;
     color: #ffffff;
     width: 100%; }
     @media (max-width: 900px) {
       .nav__item {
         width: 100%;
-        padding: 5px 0;
+        padding: 2px 0;
         margin: 0;
         font-size: 15px; } }
-  .nav__item:hover {
+  .nav :nth-of-type(5) {
+    display: none; }
+    @media (max-width: 900px) {
+      .nav :nth-of-type(5) {
+        display: inline-block; } }
+  .nav__item a:hover {
     cursor: pointer;
     border-left: 2px solid white;
-    padding-left: 2px;
+    padding-left: 20px;
     font-weight: bold;
     transition: padding 0.3s ease-in-out; }
 
@@ -142,12 +160,14 @@ img:hover {
         order: 3; } }
   .footer__box {
     border: 2px solid black;
-    padding: 20px;
+    padding: 12px;
     display: flex;
     flex-direction: column;
     margin: 0;
     margin-top: 10px;
     width: 200px; }
+    .footer__box:first-of-type {
+      justify-content: flex-start; }
   .footer__title {
     text-align: center;
     padding: 0;
@@ -156,7 +176,11 @@ img:hover {
   .footer__items {
     list-style-type: none;
     padding: 0;
-    text-align: center; }
+    text-align: center;
+    margin-top: 60px; }
+    @media (max-width: 900px) {
+      .footer__items {
+        margin: 0; } }
     .footer__items :hover {
       cursor: pointer;
       background-color: #171717;
@@ -170,6 +194,7 @@ img:hover {
     align-self: center;
     text-align: center; }
   .footer__button {
+    height: 35px;
     margin-top: 6px;
     font-family: "Fira Code", sans-serif;
     background-color: #ffffff;
