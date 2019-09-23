@@ -17,7 +17,13 @@ html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  
+#msg {
+    text-align: center
+}
+.inputEmail {
+    margin: 3px 0;
+    text-align: center
+}
 .hello {
 font-size: 30px;
 color: black;
@@ -179,13 +185,17 @@ div .hr {
 
     &__box {
         border: 2px solid black;
-        padding: 20px;
+        padding: 12px;
 
         display: flex;
         flex-direction: column;
         margin: 0;
         margin-top: 10px;
-        width: 200px
+        width: 200px;
+        &:first-of-type{
+        justify-content: flex-start;
+        }
+      
         
     }
     &__title {
@@ -198,6 +208,10 @@ div .hr {
         list-style-type: none;
         padding: 0;
         text-align: center;
+        margin-top: 60px;
+        @media (max-width:900px){
+            margin: 0
+        }
 
         :hover  {
             cursor: pointer;
@@ -216,6 +230,7 @@ div .hr {
         text-align: center;
     }
     &__button {
+        height: 35px;
         margin-top: 6px;
         font-family: $font-stack;
         background-color: $light;

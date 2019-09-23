@@ -9,6 +9,13 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
+#msg {
+  text-align: center; }
+
+.inputEmail {
+  margin: 3px 0;
+  text-align: center; }
+
 .hello {
   font-size: 30px;
   color: black;
@@ -147,12 +154,14 @@ img:hover {
         order: 3; } }
   .footer__box {
     border: 2px solid black;
-    padding: 20px;
+    padding: 12px;
     display: flex;
     flex-direction: column;
     margin: 0;
     margin-top: 10px;
     width: 200px; }
+    .footer__box:first-of-type {
+      justify-content: flex-start; }
   .footer__title {
     text-align: center;
     padding: 0;
@@ -161,7 +170,11 @@ img:hover {
   .footer__items {
     list-style-type: none;
     padding: 0;
-    text-align: center; }
+    text-align: center;
+    margin-top: 60px; }
+    @media (max-width: 900px) {
+      .footer__items {
+        margin: 0; } }
     .footer__items :hover {
       cursor: pointer;
       background-color: #171717;
@@ -175,6 +188,7 @@ img:hover {
     align-self: center;
     text-align: center; }
   .footer__button {
+    height: 35px;
     margin-top: 6px;
     font-family: "Fira Code", sans-serif;
     background-color: #ffffff;
