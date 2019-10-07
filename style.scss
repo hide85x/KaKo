@@ -40,6 +40,7 @@ background-color: rgba(255, 255, 255, 0.185);
     }
 }
 body {
+    // padding-top: 200px;
     background-image: url('https://images.pexels.com/photos/950902/pexels-photo-950902.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
     line-height: 30px;
     overflow-x: hidden;
@@ -50,7 +51,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 0;
     @media (max-width:900px) {
         line-height: 25px;
         font-size: 15px;
@@ -71,6 +71,7 @@ img:hover {
     //     cursor: pointer;
     // }
     // position: fixed;
+    // z-index: 999;
     // top: 0;
     display: flex;
     justify-content:space-between;
@@ -431,9 +432,9 @@ section {
     text-align: center;
     padding: 10px 5px;
     margin: 0;
-         &:hover {
-         box-shadow: 0 0 23px 3px rgba(0, 0, 0, 0.562);
-     }
+    //      &:hover {
+    //      box-shadow: 0 0 23px 3px rgba(0, 0, 0, 0.562);
+    //  }
 
    @media (max-width: 1200px){
         margin: 0;
@@ -442,15 +443,16 @@ section {
         font-size: 10px;
  
     }
-    &:hover {
-        background-color: rgba(0, 0, 0, 0.705);
-        filter:invert(100%);
-        cursor: crosshair;
-    }
+    // &:hover {
+    //     background-color: rgba(0, 0, 0, 0.705);
+    //     filter:invert(100%);
+    //     cursor: crosshair;
+    // }
  
     &:first-of-type {
         right: -5px;
         height: 700px;
+        padding: 0 25px;
         @media (max-width: 1200px){
             right: 0;
         
@@ -476,6 +478,7 @@ section {
     &:last-of-type {
         left:-5px;
         height: 700px;
+        padding: 0 25px;
 
         @media (max-width: 1200px){
             left:0;
