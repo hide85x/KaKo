@@ -2,7 +2,7 @@ const nav = document.querySelector('.nav');
 const btn = document.querySelector('.hamburger');
 const navLogo= document.querySelector('#navLogo');
 const footLogo= document.querySelector('#footLogo');
-const x= document.querySelector("#close");
+// const x= document.querySelector("#close");
 
 const navLinks= document.querySelectorAll(".nav__list li a ");
 

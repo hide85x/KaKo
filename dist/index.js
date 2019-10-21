@@ -117,74 +117,121 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
+})({"index.js":[function(require,module,exports) {
+var nav = document.querySelector('.nav');
+var btn = document.querySelector('.hamburger');
+var navLogo = document.querySelector('#navLogo');
+var footLogo = document.querySelector('#footLogo'); // const x= document.querySelector("#close");
 
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
+var navLinks = document.querySelectorAll(".nav__list li a ");
+var email = document.querySelector(".inputEmail");
+var msg = document.querySelector("#msg");
+var sendBtn = document.querySelector(".sendMsg");
+
+var showNav = function showNav() {
+  nav.classList.toggle('active');
+  btn.classList.toggle('hamburger--active');
+}; //for IE
+
+
+for (var i = 0; i < navLinks.length; i++) {
+  navLinks[i].addEventListener('click', navLinkClick);
+}
+
+navLinks.forEach(function (e) {
+  return e.addEventListener('click', navLinkClick);
+});
+
+function navLinkClick() {
+  smoothScroll(event);
+
+  if (nav.classList.contains("active")) {
+    nav.classList.toggle("active");
+    btn.classList.toggle("hamburger--active");
   }
+} // // 1 approach
+// function smoothScroll(event){
+//     const targetId= event.currentTarget.getAttribute('href');
+//     console.log(targetId);
+//     window.scrollTo({
+//         top: document.querySelector(targetId).offsetTop,
+//         behavior: "smooth"
+//     })
+// }
+//dla loga w stopce pageUP
 
-  return bundleURL;
-}
 
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
+function smoothscroll() {
+  var currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
 
-    if (matches) {
-      return getBaseURL(matches[0]);
-    }
+  if (currentScroll > 0) {
+    window.requestAnimationFrame(smoothscroll);
+    window.scrollTo(0, currentScroll - currentScroll / 5);
   }
-
-  return '/';
 }
 
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
+function sendEmail() {
+  console.log(msg.value); // sendBtn.setAttribute('href', "mailto:hide85x@gmail.com" + "&subject=" + escape("KaKo Question") + "&body" + escape(msg.value));
+
+  var link = "mailto:hide85x@gmail.com" + "?cc=" + email.value + "&subject=KaKo! Question from Your site!" + "&body=" + msg.value;
+  window.location.href = link;
+  msg.value = "";
+  email.value = "";
 }
 
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
+sendBtn.addEventListener('click', sendEmail);
+btn.addEventListener('click', showNav);
+navLogo.addEventListener('click', showNav);
+footLogo.addEventListener('click', smoothscroll);
+x.addEventListener('click', function () {
+  nav.classList.remove("active");
+}); // nav.addEventListener('click', showNav)
+// super smooth scrool on IE!!!!
 
-function updateLink(link) {
-  var newLink = link.cloneNode();
+function smoothScroll(event) {
+  event.preventDefault();
+  var targetId = event.currentTarget.getAttribute("href") === "#" ? "header" : event.currentTarget.getAttribute("href");
+  var targetPosition = document.querySelector(targetId).offsetTop;
+  var startPosition = window.pageYOffset;
+  var distance = targetPosition - startPosition;
+  var duration = 1000;
+  var start = null;
+  window.requestAnimationFrame(step);
 
-  newLink.onload = function () {
-    link.remove();
-  };
+  function step(timestamp) {
+    if (!start) start = timestamp;
+    var progress = timestamp - start; // window.scrollTo(0, distance*(progress/duration) + startPosition);
 
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-
-var cssTimeout = null;
-
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
+    window.scrollTo(0, easeInOutCubic(progress, startPosition, distance, duration));
+    if (progress < duration) window.requestAnimationFrame(step);
   }
+} // Easing Functions
 
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
 
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
-      }
-    }
-
-    cssTimeout = null;
-  }, 50);
+function linear(t, b, c, d) {
+  return c * t / d + b;
 }
 
-module.exports = reloadCSS;
-},{"./bundle-url":"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+;
+
+function easeInOutQuad(t, b, c, d) {
+  t /= d / 2;
+  if (t < 1) return c / 2 * t * t + b;
+  t--;
+  return -c / 2 * (t * (t - 2) - 1) + b;
+}
+
+;
+
+function easeInOutCubic(t, b, c, d) {
+  t /= d / 2;
+  if (t < 1) return c / 2 * t * t * t + b;
+  t -= 2;
+  return c / 2 * (t * t * t + 2) + b;
+}
+
+;
+},{}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -212,7 +259,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65309" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64962" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -387,5 +434,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
+},{}]},{},["../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
 //# sourceMappingURL=/index.js.map

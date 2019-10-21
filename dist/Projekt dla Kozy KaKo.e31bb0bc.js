@@ -121,8 +121,8 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 var nav = document.querySelector('.nav');
 var btn = document.querySelector('.hamburger');
 var navLogo = document.querySelector('#navLogo');
-var footLogo = document.querySelector('#footLogo');
-var x = document.querySelector("#close");
+var footLogo = document.querySelector('#footLogo'); // const x= document.querySelector("#close");
+
 var navLinks = document.querySelectorAll(".nav__list li a ");
 var email = document.querySelector(".inputEmail");
 var msg = document.querySelector("#msg");
@@ -259,7 +259,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58418" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64969" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
